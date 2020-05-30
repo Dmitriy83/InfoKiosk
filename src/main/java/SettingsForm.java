@@ -8,7 +8,7 @@ public class SettingsForm {
     private JPasswordField pswPassword;
     private JTextField txtSupportPhone;
     private JCheckBox chkAlwaysOnTop;
-    private JButton btnStartInfoKiosk;
+    public JButton btnStartInfoKiosk;
     private JTextField txtLogin;
 
     public SettingsForm(String wsdlAddress, String login, String supportPhone, boolean alwaysOnTop){
@@ -16,14 +16,11 @@ public class SettingsForm {
         txtLogin.setText(login);
         chkAlwaysOnTop.setSelected(alwaysOnTop);
         txtSupportPhone.setText(supportPhone);
-        btnStartInfoKiosk.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                InfoKiosk.saveSettings(chkAlwaysOnTop.isSelected(), txtWSDLAddress.getText(), txtLogin.getText(), txtSupportPhone.getText());
-                InfoKiosk.setPassword(new String(pswPassword.getPassword())); // Пароль в настройках пользователя не сохраняем
-                InfoKiosk.startInfoKioskInEDT();
-                InfoKiosk.closeSettingsForm();
-            }
+        btnStartInfoKiosk.addActionListener(e -> {
+            InfoKiosk.saveSettings(chkAlwaysOnTop.isSelected(), txtWSDLAddress.getText(), txtLogin.getText(), txtSupportPhone.getText());
+            InfoKiosk.setPassword(new String(pswPassword.getPassword())); // Пароль в настройках пользователя не сохраняем
+            InfoKiosk.closeSettingsForm();
+            InfoKiosk.startInfoKioskInEDT();
         });
     }
 }

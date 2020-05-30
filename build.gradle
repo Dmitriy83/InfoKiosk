@@ -1,0 +1,24 @@
+plugins {
+    id 'java'
+}
+
+group 'ru.sfx-tula'
+version '1.0'
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'InfoKiosk'
+        )
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile 'org.apache.pdfbox:pdfbox:2.0.19'
+}
+

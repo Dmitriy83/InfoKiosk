@@ -12,7 +12,7 @@ public class InfoKiosk {
     private static InfoKioskFrame frame;
     private static JFrame frameSettings;
     private static KeyAdapter frameKeyListener;
-    private static String companyName;
+    private static String companyName = "Организация не определена.";
     private static String individualId;
     private static Timer sessionTimer;
     private static String password;
@@ -44,37 +44,39 @@ public class InfoKiosk {
         frameSettings = new JFrame();
         frameSettings.setUndecorated(true);
         frameSettings.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        InputStream is = InfoKiosk.class.getResourceAsStream("settings_background.png");
-        BufferedImage image = null;
-        try {
-            image = ImageIO.read(is);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        BufferedImage image = getImage("settings_background.png");
 
         Preferences preferences = Preferences.userRoot().node(InfoKiosk.class.getName());
-        BackgroundPanel panel = new SettingsForm(
+        SettingsForm form = new SettingsForm(
                 preferences.get("wsdl_address", "http://<ip>/zup/ws/infokiosk.1cws?wsdl"),
                 preferences.get("login", "AdminWS"),
                 preferences.get("support_phone", "00-00"),
-                preferences.getBoolean("always_on_top", false))
-                .backgroundPanel;
+                preferences.getBoolean("always_on_top", false));
+        BackgroundPanel panel = form.backgroundPanel;
 
         panel.setImage(image);
         frameSettings.setContentPane(panel);
         frameSettings.setSize(480, 500);
         frameSettings.setResizable(false);
         frameSettings.setLocationRelativeTo(null); // Отображаем по центру
+        frameSettings.getRootPane().setDefaultButton(form.btnStartInfoKiosk);
         frameSettings.setVisible(true);
     }
 
+    private static BufferedImage getImage(String imageName) {
+        InputStream is = InfoKiosk.class.getResourceAsStream(imageName);
+        BufferedImage image = null;
+        try {
+            image = ImageIO.read(is);
+        } catch (IOException e) {
+            showErrorScreen("Произошла ошибка при загрузке фона формы: " + e.getMessage());
+            e.printStackTrace();
+        }
+        return image;
+    }
+
     public static void startInfoKioskInEDT(){
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                startInfoKiosk();
-            }
-        });
+        SwingUtilities.invokeLater(() -> startInfoKiosk());
     }
 
     private static void startInfoKiosk(){
@@ -88,28 +90,28 @@ public class InfoKiosk {
         }
 
         frame.setExtendedState(Frame.MAXIMIZED_BOTH);                   // установим полноэкранный режим
-        frame.setVisible(true);
-
-        frameKeyListener = getFrameKeyListener(frame);
-        WSController wsController = new WSController();
-        companyName = wsController.getCompanyName();
-        initializeInvitation();
 
         // Добавим отслеживание перемещения мыши для завершения сеанса по времени простоя
         Toolkit.getDefaultToolkit().addAWTEventListener(new Listener(), AWTEvent.MOUSE_EVENT_MASK);
-        startTimer(10);
+        startTimer(15);
+
+        frameKeyListener = getFrameKeyListener(frame);
+        WSController wsController = new WSController();
+        if (wsController.isConnected()) {
+            companyName = wsController.getCompanyName();
+            initializeInvitation();
+        }
+
+        frame.setVisible(true);
     }
 
     private static void startTimer(int delaySeconds) {
-        sessionTimer = new Timer(delaySeconds * 1000, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                System.out.println("Событие таймера произошло.");
-                sessionTimer.restart();
-                frame.removeKeyListener(frameKeyListener);
-                setFieldsInDefaultValue();
-                initializeInvitation();
-            }
+        sessionTimer = new Timer(delaySeconds * 1000, ae -> {
+            System.out.println("Событие таймера произошло.");
+            sessionTimer.restart();
+            frame.removeKeyListener(frameKeyListener);
+            setFieldsInDefaultValue();
+            initializeInvitation();
         });
         sessionTimer.setRepeats(false);
         sessionTimer.setInitialDelay(delaySeconds * 1000);
@@ -152,13 +154,16 @@ public class InfoKiosk {
             public void keyReleased(KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_ENTER) {
                     WSController wsController = new WSController();
+                    if (!wsController.isConnected()) {
+                        return;
+                    }
                     EmployeeData employeeData = wsController.getEmployeeData(frame.getKeyCardNumber());
                     if (employeeData != null && employeeData.isIsFound()) {
                         setIndividualId(employeeData.getIndividualId());
                         initializePaySlipPrint(employeeData.getDiscription());
                     } else {
                         setIndividualId("");
-                        initializeEmployeeNotFound();
+                        showErrorScreen("Сотрудник по номеру пропуска не найден.");
                     }
                     sessionTimer.restart();
 
@@ -180,8 +185,8 @@ public class InfoKiosk {
         frame.requestFocusInWindow(); // Фрейм всегда должен иметь фокус, чтобы работал listener
     }
 
-    private static void initializeEmployeeNotFound() {
-        initializeNonInvitationPanel(new EmployeeNotFound().backgroundPanel);
+    public static void showErrorScreen(String errorDescription) {
+        initializeNonInvitationPanel(new ErrorScreen(errorDescription).backgroundPanel);
     }
 
     private static void initializePaySlipPrint(String employeeDescription) {
@@ -194,14 +199,7 @@ public class InfoKiosk {
     }
 
     private static void initializePanel(BackgroundPanel panel) {
-        InputStream is = InfoKiosk.class.getResourceAsStream("form_background.jpg");
-        BufferedImage image = null;
-        try {
-            image = ImageIO.read(is);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        panel.setImage(image);
+        panel.setImage(getImage("form_background.jpg"));
         frame.setContentPane(panel);
         frame.revalidate();
         frame.repaint();

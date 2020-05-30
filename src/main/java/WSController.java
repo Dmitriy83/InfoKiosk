@@ -11,6 +11,7 @@ import java.util.prefs.Preferences;
 
 public class WSController {
     private InfokioskPortType wsPort;
+    private boolean isConnected;
 
     public WSController(){
         // Установим параметры аутентификации для доступа к веб-сервису по умолчанию
@@ -26,33 +27,39 @@ public class WSController {
             URL wsdlURL = new URL(preferences.get("wsdl_address", "http://localhost/zup/ws/infokiosk.1cws?wsdl"));
             InfokioskWS ws = new InfokioskWS(wsdlURL);
             wsPort = ws.getInfokioskSoap();
-        } catch (MalformedURLException e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-            e.printStackTrace();
+            isConnected = true;
+        } catch (Exception e) {
+            InfoKiosk.showErrorScreen("Произошла ошибка при установке соединения с веб-сервисом: " + e.getMessage());
+            //e.printStackTrace();
+            isConnected = false;
         }
     }
 
     public String getCompanyName() {
-        try {
+        if (wsPort != null) {
             return wsPort.getCompanyName();
-        } catch (Exception e) {
+        } else {
             return "Организация не определена.";
         }
     }
 
     public EmployeeData getEmployeeData(String keyCardNumber) {
-        try {
+        if (wsPort != null) {
             return wsPort.getEmployeeData(keyCardNumber);
-        } catch (Exception e) {
+        } else {
             return null;
         }
     }
 
     public byte[] getPaySlipPDF(String individualId, XMLGregorianCalendar month) {
-        try {
+        if (wsPort != null) {
             return wsPort.getPaySlip(individualId, month, FileTypes.PDF);
-        } catch (Exception e) {
+        } else {
             return null;
         }
+    }
+
+    public boolean isConnected() {
+        return isConnected;
     }
 }

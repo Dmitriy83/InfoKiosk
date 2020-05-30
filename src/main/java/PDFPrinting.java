@@ -32,8 +32,8 @@ public final class PDFPrinting {
             // Открываем начальную страницу
             InfoKiosk.initializeInvitation();
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Произошла ошибка при печати расчетного листка. Обратитесь в тех. поддержку.");
-            e.printStackTrace();
+            InfoKiosk.showErrorScreen("Произошла ошибка при печати расчетного листка: "+ e.getMessage());
+            //e.printStackTrace();
         }
     }
 
