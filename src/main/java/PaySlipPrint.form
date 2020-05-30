@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="PaySlipPrint">
+  <grid id="27dc6" binding="mainPanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="100" left="0" bottom="20" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="890" height="587"/>
+    </constraints>
+    <properties/>
+    <border type="none">
+      <font/>
+    </border>
+    <children>
+      <grid id="7cb63" class="BackgroundPanel" binding="backgroundPanel" layout-manager="GridLayoutManager" row-count="4" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="80" left="0" bottom="80" right="0"/>
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <focusable value="true"/>
+          <foreground color="-12632257"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <grid id="7e682" layout-manager="BorderLayout" hgap="0" vgap="0">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <focusable value="false"/>
+              <foreground color="-12731596"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="f3a83" class="javax.swing.JButton" binding="brnMonthDecrease">
+                <constraints border-constraint="West"/>
+                <properties>
+                  <background color="-16750088"/>
+                  <borderPainted value="false"/>
+                  <focusable value="false"/>
+                  <hideActionText value="true"/>
+                  <icon value="decrease.png"/>
+                  <maximumSize width="-1" height="-1"/>
+                  <minimumSize width="-1" height="-1"/>
+                  <preferredSize width="55" height="55"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="bf923" class="javax.swing.JButton" binding="btnMonthIncrease">
+                <constraints border-constraint="East"/>
+                <properties>
+                  <background color="-16750088"/>
+                  <borderPainted value="false"/>
+                  <focusable value="false"/>
+                  <hideActionText value="true"/>
+                  <icon value="increase.png"/>
+                  <maximumSize width="-1" height="-1"/>
+                  <minimumSize width="-1" height="-1"/>
+                  <preferredSize width="55" height="55"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="16e30" class="javax.swing.JLabel" binding="lblMonth">
+                <constraints border-constraint="Center"/>
+                <properties>
+                  <focusable value="false"/>
+                  <font name="Arial" size="42"/>
+                  <foreground color="-12632257"/>
+                  <horizontalAlignment value="0"/>
+                  <maximumSize width="-1" height="-1"/>
+                  <minimumSize width="-1" height="-1"/>
+                  <opaque value="false"/>
+                  <preferredSize width="400" height="55"/>
+                  <requestFocusEnabled value="true"/>
+                  <text value="Май 2020 г."/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <component id="a0c36" class="javax.swing.JButton" binding="btnPaySlipPrint">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="1" fill="0" indent="0" use-parent-layout="false">
+                <preferred-size width="350" height="120"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-16750088"/>
+              <focusable value="false"/>
+              <font size="24"/>
+              <foreground color="-1"/>
+              <horizontalTextPosition value="11"/>
+              <icon value="print.png"/>
+              <iconTextGap value="10"/>
+              <label value="&lt;html&gt;&lt;center&gt;Распечатать&lt;br&gt;расчетный лист&lt;/center&gt;&lt;/html&gt;"/>
+              <text value="&lt;html&gt;&lt;center&gt;Распечатать&lt;br&gt;расчетный лист&lt;/center&gt;&lt;/html&gt;"/>
+            </properties>
+          </component>
+          <component id="20f32" class="javax.swing.JButton" binding="btnCloseSession">
+            <constraints>
+              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="2" fill="0" indent="0" use-parent-layout="false">
+                <preferred-size width="300" height="60"/>
+              </grid>
+            </constraints>
+            <properties>
+              <alignmentY value="0.5"/>
+              <background color="-16750088"/>
+              <enabled value="true"/>
+              <focusable value="false"/>
+              <font name="Arial" size="24"/>
+              <foreground color="-1"/>
+              <horizontalTextPosition value="0"/>
+              <margin top="0" left="0" bottom="0" right="0"/>
+              <text value="Завершить сеанс"/>
+            </properties>
+          </component>
+          <component id="42415" class="javax.swing.JLabel" binding="lblEmployeeData">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="2" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <focusable value="false"/>
+              <font name="Arial" size="42"/>
+              <foreground color="-12632257"/>
+              <text value="Иванов Иван Иванович, таб. номер 234"/>
+              <verticalAlignment value="0"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+    </children>
+  </grid>
+</form>
