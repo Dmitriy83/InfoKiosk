@@ -160,7 +160,7 @@ public class InfoKiosk {
                     EmployeeData employeeData = wsController.getEmployeeData(frame.getKeyCardNumber());
                     if (employeeData != null && employeeData.isIsFound()) {
                         setIndividualId(employeeData.getIndividualId());
-                        initializePaySlipPrint(employeeData.getDiscription());
+                        initializePaySlipPrint(employeeData.getDescription());
                     } else {
                         setIndividualId("");
                         showErrorScreen("Сотрудник по номеру пропуска не найден.");

@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
  *         &lt;element name="IndividualId" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="Discription" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="Description" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="isFound" type="{http://www.w3.org/2001/XMLSchema}boolean"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
@@ -31,15 +31,15 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "EmployeeData", propOrder = {
     "individualId",
-    "discription",
+    "description",
     "isFound"
 })
 public class EmployeeData {
 
     @XmlElement(name = "IndividualId", required = true)
     protected String individualId;
-    @XmlElement(name = "Discription", required = true)
-    protected String discription;
+    @XmlElement(name = "Description", required = true)
+    protected String description;
     protected boolean isFound;
 
     /**
@@ -67,27 +67,27 @@ public class EmployeeData {
     }
 
     /**
-     * Gets the value of the discription property.
+     * Gets the value of the description property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getDiscription() {
-        return discription;
+    public String getDescription() {
+        return description;
     }
 
     /**
-     * Sets the value of the discription property.
+     * Sets the value of the description property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setDiscription(String value) {
-        this.discription = value;
+    public void setDescription(String value) {
+        this.description = value;
     }
 
     /**

@@ -1,5 +1,5 @@
-import org.infokiosk.InfokioskPortType;
-import org.infokiosk.InfokioskWS;
+import org.infokiosk.InfoKioskWS;
+import org.infokiosk.InfoKioskWSPortType;
 import org.infokiosk_types.EmployeeData;
 import org.infokiosk_types.FileTypes;
 
@@ -10,7 +10,7 @@ import java.net.URL;
 import java.util.prefs.Preferences;
 
 public class WSController {
-    private InfokioskPortType wsPort;
+    private InfoKioskWSPortType wsPort;
     private boolean isConnected;
 
     public WSController(){
@@ -25,8 +25,8 @@ public class WSController {
         try {
             Preferences preferences = Preferences.userRoot().node(InfoKiosk.class.getName());
             URL wsdlURL = new URL(preferences.get("wsdl_address", "http://localhost/zup/ws/infokiosk.1cws?wsdl"));
-            InfokioskWS ws = new InfokioskWS(wsdlURL);
-            wsPort = ws.getInfokioskSoap();
+            InfoKioskWS ws = new InfoKioskWS(wsdlURL);
+            wsPort = ws.getInfoKioskWSSoap();
             isConnected = true;
         } catch (Exception e) {
             InfoKiosk.showErrorScreen("Произошла ошибка при установке соединения с веб-сервисом: " + e.getMessage());
