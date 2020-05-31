@@ -91,6 +91,7 @@
               <foreground color="-1"/>
               <horizontalTextPosition value="0"/>
               <margin top="0" left="0" bottom="0" right="0"/>
+              <name value="btnCloseSession"/>
               <text value="Завершить сеанс"/>
             </properties>
           </component>

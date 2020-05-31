@@ -45,6 +45,7 @@
                   <horizontalAlignment value="2"/>
                   <maximumSize width="-1" height="-1"/>
                   <minimumSize width="-1" height="-1"/>
+                  <name value="txtWSDLAddress"/>
                   <preferredSize width="350" height="30"/>
                   <text value="http://&lt;ip&gt;/zup/ws/infokiosk.1cws?wsdl"/>
                 </properties>
@@ -93,6 +94,7 @@
                   <horizontalAlignment value="2"/>
                   <maximumSize width="-1" height="-1"/>
                   <minimumSize width="-1" height="-1"/>
+                  <name value="txtLogin"/>
                   <preferredSize width="350" height="30"/>
                   <text value="AdminWS"/>
                 </properties>
@@ -182,6 +184,7 @@
                   <horizontalAlignment value="2"/>
                   <maximumSize width="-1" height="-1"/>
                   <minimumSize width="-1" height="-1"/>
+                  <name value="txtSupportPhone"/>
                   <preferredSize width="350" height="30"/>
                   <text value="00-00-00"/>
                 </properties>
@@ -253,6 +256,7 @@
               <foreground color="-1"/>
               <horizontalTextPosition value="0"/>
               <margin top="0" left="0" bottom="0" right="0"/>
+              <name value="btnStartInfoKiosk"/>
               <text value="Запустить информационный киоск"/>
             </properties>
           </component>

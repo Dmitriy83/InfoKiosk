@@ -8,4 +8,7 @@ public class InfoKioskFrame extends JFrame {
     public String getKeyCardNumber(){
         return mKeyCardNumber;
     }
+    public InfoKioskFrame(String name){
+        setName(name);
+    }
 }

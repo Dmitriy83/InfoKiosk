@@ -41,7 +41,7 @@ public class InfoKiosk {
     }
 
     private static void initializeSettings(){
-        frameSettings = new JFrame();
+        frameSettings = new JFrame("Settings");
         frameSettings.setUndecorated(true);
         frameSettings.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         BufferedImage image = getImage("settings_background.png");
@@ -80,7 +80,7 @@ public class InfoKiosk {
     }
 
     private static void startInfoKiosk(){
-        frame = new InfoKioskFrame();
+        frame = new InfoKioskFrame("InfoKiosk");
         frame.setUndecorated(true);                                     // уберем заголовок и рамки окна приложения
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
