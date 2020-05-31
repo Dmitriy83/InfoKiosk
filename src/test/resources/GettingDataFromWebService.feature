@@ -5,7 +5,7 @@ Feature: Getting data from web-service
     And I input "77-77" in field "txtSupportPhone"
     And I click button "btnStartInfoKiosk"
     And I wait 2 seconds
-    Then I see frame "InfoKiosk" displayed
+    Then Frame "InfoKiosk" displayed
     Then I see text "Обратитесь в тех. поддержку по телефону 77-77."
     And I click button "btnCloseSession"
     # Из-за глюка в первый раз промахивается мимо кнопки. Во второй раз попадает.

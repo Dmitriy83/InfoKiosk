@@ -56,8 +56,8 @@ public class StepDefinitions {
     }
 
 
-    @Then("I see frame {string} displayed")
-    public void iSeeFrameDisplayed(String frameName) {
+    @Then("Frame {string} displayed")
+    public void frameDisplayed(String frameName) {
         frame = WindowFinder.findFrame(frameName).using(robot);
     }
 
