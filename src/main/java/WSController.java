@@ -3,9 +3,7 @@ import org.infokiosk.InfoKioskWSPortType;
 import org.infokiosk_types.EmployeeData;
 import org.infokiosk_types.FileTypes;
 
-import javax.swing.*;
 import javax.xml.datatype.XMLGregorianCalendar;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.prefs.Preferences;
 
@@ -45,7 +43,11 @@ public class WSController {
 
     public EmployeeData getEmployeeData(String keyCardNumber) {
         if (wsPort != null) {
-            return wsPort.getEmployeeData(keyCardNumber);
+            try {
+                return wsPort.getEmployeeData(keyCardNumber);
+            } catch (Exception e) {
+                return null;
+            }
         } else {
             return null;
         }
@@ -53,7 +55,11 @@ public class WSController {
 
     public byte[] getPaySlipPDF(String individualId, XMLGregorianCalendar month) {
         if (wsPort != null) {
-            return wsPort.getPaySlip(individualId, month, FileTypes.PDF);
+            try {
+                return wsPort.getPaySlip(individualId, month, FileTypes.PDF);
+            } catch (Exception e) {
+                return null;
+            }
         } else {
             return null;
         }

@@ -18,6 +18,7 @@ import javax.xml.ws.ResponseWrapper;
 @XmlSeeAlso({org.infokiosk_types.ObjectFactory.class, ObjectFactory.class})
 public interface InfoKioskWSPortType {
 
+    @SuppressWarnings("UnnecessaryInterfaceModifier")
     @WebMethod(operationName = "GetCompanyName", action = "http://www.infokiosk.org#InfoKioskWS:GetCompanyName")
     @RequestWrapper(localName = "GetCompanyName", targetNamespace = "http://www.infokiosk.org", className = "org.infokiosk.GetCompanyName")
     @ResponseWrapper(localName = "GetCompanyNameResponse", targetNamespace = "http://www.infokiosk.org", className = "org.infokiosk.GetCompanyNameResponse")
@@ -25,6 +26,7 @@ public interface InfoKioskWSPortType {
     public java.lang.String getCompanyName()
 ;
 
+    @SuppressWarnings("UnnecessaryInterfaceModifier")
     @WebMethod(operationName = "GetEmployeeData", action = "http://www.infokiosk.org#InfoKioskWS:GetEmployeeData")
     @RequestWrapper(localName = "GetEmployeeData", targetNamespace = "http://www.infokiosk.org", className = "org.infokiosk.GetEmployeeData")
     @ResponseWrapper(localName = "GetEmployeeDataResponse", targetNamespace = "http://www.infokiosk.org", className = "org.infokiosk.GetEmployeeDataResponse")
@@ -35,6 +37,7 @@ public interface InfoKioskWSPortType {
         java.lang.String keyCardNumber
     );
 
+    @SuppressWarnings("UnnecessaryInterfaceModifier")
     @WebMethod(operationName = "GetPaySlip", action = "http://www.infokiosk.org#InfoKioskWS:GetPaySlip")
     @RequestWrapper(localName = "GetPaySlip", targetNamespace = "http://www.infokiosk.org", className = "org.infokiosk.GetPaySlip")
     @ResponseWrapper(localName = "GetPaySlipResponse", targetNamespace = "http://www.infokiosk.org", className = "org.infokiosk.GetPaySlipResponse")

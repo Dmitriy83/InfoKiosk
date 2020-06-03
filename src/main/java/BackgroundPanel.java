@@ -10,6 +10,7 @@ import javax.swing.*;
  *  Also, any component added directly to this panel will be made
  *  non-opaque so that the custom painting can show through.
  */
+@SuppressWarnings("unused")
 public class BackgroundPanel extends JPanel
 {
     public static final int SCALED = 0;
@@ -44,7 +45,7 @@ public class BackgroundPanel extends JPanel
     }
 
     /*
-     *  Set image as the backround with the specified style and alignment
+     *  Set image as the background with the specified style and alignment
      */
     public BackgroundPanel(Image image, int style, float alignmentX, float alignmentY)
     {
@@ -96,6 +97,7 @@ public class BackgroundPanel extends JPanel
      */
     public void setImageAlignmentX(float alignmentX)
     {
+        //noinspection ManualMinMaxCalculation
         this.alignmentX = alignmentX > 1.0f ? 1.0f : alignmentX < 0.0f ? 0.0f : alignmentX;
         repaint();
     }
@@ -105,6 +107,7 @@ public class BackgroundPanel extends JPanel
      */
     public void setImageAlignmentY(float alignmentY)
     {
+        //noinspection ManualMinMaxCalculation
         this.alignmentY = alignmentY > 1.0f ? 1.0f : alignmentY < 0.0f ? 0.0f : alignmentY;
         repaint();
     }
@@ -201,6 +204,7 @@ public class BackgroundPanel extends JPanel
         switch (style)
         {
             case SCALED :
+                //noinspection DuplicateBranchesInSwitch
                 drawScaled(g);
                 break;
 

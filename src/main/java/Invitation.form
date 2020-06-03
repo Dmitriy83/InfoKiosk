@@ -26,7 +26,7 @@
               <focusable value="false"/>
               <font name="Arial" size="50"/>
               <foreground color="-13816531"/>
-              <text value="Поднесите ваш пропуск"/>
+              <text resource-bundle="subscription" key="hold_pass"/>
             </properties>
           </component>
           <grid id="bb683" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
@@ -49,7 +49,7 @@
                   <foreground color="-12632257"/>
                   <horizontalAlignment value="0"/>
                   <horizontalTextPosition value="0"/>
-                  <text value="ДОБРО ПОЖАЛОВАТЬ НА ПОРТАЛ"/>
+                  <text resource-bundle="subscription" key="invitation_to_portal"/>
                   <verticalAlignment value="0"/>
                 </properties>
               </component>
@@ -65,7 +65,7 @@
                   <horizontalAlignment value="0"/>
                   <horizontalTextPosition value="0"/>
                   <preferredSize width="-1" height="-1"/>
-                  <text value="Название организации"/>
+                  <text resource-bundle="subscription" key="company_name"/>
                 </properties>
               </component>
             </children>

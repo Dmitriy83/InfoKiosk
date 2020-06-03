@@ -14,6 +14,7 @@ import javax.xml.ws.Service;
  * Generated source version: 3.3.6
  *
  */
+@SuppressWarnings("unused")
 @WebServiceClient(name = "InfoKioskWS",
                   wsdlLocation = "file:/C:/Users/127/AppData/Local/Temp/tempdir361428764797344436.tmp/infokiosk_1.wsdl",
                   targetNamespace = "http://www.infokiosk.org")

@@ -7,7 +7,6 @@ import javax.print.attribute.HashPrintRequestAttributeSet;
 import javax.print.attribute.PrintRequestAttributeSet;
 import javax.print.attribute.standard.PageRanges;
 import javax.print.attribute.standard.Sides;
-import javax.swing.*;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 import java.awt.print.*;
@@ -50,6 +49,7 @@ public final class PDFPrinting {
     /**
      * Prints using custom PrintRequestAttribute values.
      */
+    @SuppressWarnings("unused")
     private static void printWithAttributes(PDDocument document) throws PrinterException
     {
         PrinterJob job = PrinterJob.getPrinterJob();
@@ -64,6 +64,7 @@ public final class PDFPrinting {
     /**
      * Prints with a print preview dialog.
      */
+    @SuppressWarnings("unused")
     private static void printWithDialog(PDDocument document) throws PrinterException
     {
         PrinterJob job = PrinterJob.getPrinterJob();
@@ -78,6 +79,7 @@ public final class PDFPrinting {
     /**
      * Prints with a print preview dialog and custom PrintRequestAttribute values.
      */
+    @SuppressWarnings("unused")
     private static void printWithDialogAndAttributes(PDDocument document) throws PrinterException
     {
         PrinterJob job = PrinterJob.getPrinterJob();
@@ -113,6 +115,7 @@ public final class PDFPrinting {
     /**
      * Prints using a custom page size and custom margins.
      */
+    @SuppressWarnings("unused")
     private static void printWithPaper(PDDocument document) throws PrinterException
     {
         PrinterJob job = PrinterJob.getPrinterJob();

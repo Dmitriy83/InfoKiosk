@@ -1,4 +1,5 @@
 import org.infokiosk_types.EmployeeData;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -16,10 +17,23 @@ public class InfoKiosk {
     private static String individualId;
     private static Timer sessionTimer;
     private static String password;
+    private static AWTListener awtListener;
 
     public static void main(String[] args) {
         setThemeNimbus();
         initializeSettingsInEDT();
+    }
+
+    public static void Dispose(){
+        // Сейчас этот метод нужен для последовательного выполнения тестовых сценариев. Иначе, например, во втором сценарии начнет срабатывать таймер, подключенный в первом сценарии.
+        sessionTimer.stop();
+        sessionTimer = null;
+        frameSettings = null;
+        frame = null;
+        Toolkit.getDefaultToolkit().removeAWTEventListener(awtListener);
+        companyName = "Организация не определена.";
+        individualId = "";
+        password = "";
     }
 
     private static void setThemeNimbus(){
@@ -76,7 +90,7 @@ public class InfoKiosk {
     }
 
     public static void startInfoKioskInEDT(){
-        SwingUtilities.invokeLater(() -> startInfoKiosk());
+        SwingUtilities.invokeLater(InfoKiosk::startInfoKiosk);
     }
 
     private static void startInfoKiosk(){
@@ -92,7 +106,8 @@ public class InfoKiosk {
         frame.setExtendedState(Frame.MAXIMIZED_BOTH);                   // установим полноэкранный режим
 
         // Добавим отслеживание перемещения мыши для завершения сеанса по времени простоя
-        Toolkit.getDefaultToolkit().addAWTEventListener(new Listener(), AWTEvent.MOUSE_EVENT_MASK);
+        awtListener = new AWTListener();
+        Toolkit.getDefaultToolkit().addAWTEventListener(awtListener, AWTEvent.MOUSE_EVENT_MASK);
         startTimer(15);
 
         frameKeyListener = getFrameKeyListener(frame);
@@ -105,9 +120,10 @@ public class InfoKiosk {
         frame.setVisible(true);
     }
 
+    @SuppressWarnings("SameParameterValue")
     private static void startTimer(int delaySeconds) {
         sessionTimer = new Timer(delaySeconds * 1000, ae -> {
-            System.out.println("Событие таймера произошло.");
+            //System.out.println("Событие таймера произошло: " + LocalDateTime.now());
             sessionTimer.restart();
             frame.removeKeyListener(frameKeyListener);
             setFieldsInDefaultValue();
@@ -139,10 +155,11 @@ public class InfoKiosk {
         InfoKiosk.password = password;
     }
 
-    private static class Listener implements AWTEventListener {
+    private static class AWTListener implements AWTEventListener {
         public void eventDispatched(AWTEvent event) {
             // Пользователь совершил действие - сбрасываем таймер завершения сеанса
             if (MouseEvent.MOUSE_PRESSED == event.getID()) {
+                //System.out.println("Таймер сброшен: " + LocalDateTime.now());
                 sessionTimer.restart();
             }
         }

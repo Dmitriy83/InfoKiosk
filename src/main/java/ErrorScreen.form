@@ -53,7 +53,7 @@
                   <focusable value="false"/>
                   <font name="Arial" size="42"/>
                   <foreground color="-12632257"/>
-                  <text value="Неизвестная ошибка."/>
+                  <text resource-bundle="subscription" key="unknown_error"/>
                 </properties>
               </component>
               <component id="85819" class="javax.swing.JLabel" binding="lblSupportText">
@@ -64,7 +64,7 @@
                   <focusable value="false"/>
                   <font name="Arial" size="42"/>
                   <foreground color="-12632257"/>
-                  <text value="Обратитесь в тех. поддержку по телефону 00-00."/>
+                  <text resource-bundle="subscription" key="support_phone_message"/>
                 </properties>
               </component>
               <vspacer id="df131">
@@ -91,8 +91,8 @@
               <foreground color="-1"/>
               <horizontalTextPosition value="0"/>
               <margin top="0" left="0" bottom="0" right="0"/>
-              <name value="btnCloseSession"/>
-              <text value="Завершить сеанс"/>
+              <name resource-bundle="subscription" key="close_session_button"/>
+              <text resource-bundle="subscription" key="close_session"/>
             </properties>
           </component>
         </children>

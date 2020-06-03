@@ -45,9 +45,9 @@
                   <horizontalAlignment value="2"/>
                   <maximumSize width="-1" height="-1"/>
                   <minimumSize width="-1" height="-1"/>
-                  <name value="txtWSDLAddress"/>
+                  <name resource-bundle="subscription" key="txt_wsdl_address"/>
                   <preferredSize width="350" height="30"/>
-                  <text value="http://&lt;ip&gt;/zup/ws/infokiosk.1cws?wsdl"/>
+                  <text value=""/>
                 </properties>
               </component>
               <component id="899fa" class="javax.swing.JLabel">
@@ -66,7 +66,7 @@
                   <maximumSize width="-1" height="-1"/>
                   <minimumSize width="-1" height="-1"/>
                   <preferredSize width="120" height="30"/>
-                  <text value="Адрес веб-сервиса"/>
+                  <text resource-bundle="subscription" key="wsdl_address_text"/>
                 </properties>
               </component>
             </children>
@@ -94,9 +94,9 @@
                   <horizontalAlignment value="2"/>
                   <maximumSize width="-1" height="-1"/>
                   <minimumSize width="-1" height="-1"/>
-                  <name value="txtLogin"/>
+                  <name resource-bundle="subscription" key="txt_login"/>
                   <preferredSize width="350" height="30"/>
-                  <text value="AdminWS"/>
+                  <text value=""/>
                 </properties>
               </component>
               <component id="5bd63" class="javax.swing.JLabel">
@@ -112,7 +112,7 @@
                   <maximumSize width="-1" height="-1"/>
                   <minimumSize width="-1" height="-1"/>
                   <preferredSize width="120" height="30"/>
-                  <text value="Логин"/>
+                  <text resource-bundle="subscription" key="login_text"/>
                 </properties>
               </component>
             </children>
@@ -140,6 +140,7 @@
                   <horizontalAlignment value="2"/>
                   <maximumSize width="-1" height="-1"/>
                   <minimumSize width="-1" height="-1"/>
+                  <name resource-bundle="subscription" key="psw_password"/>
                   <preferredSize width="350" height="30"/>
                 </properties>
               </component>
@@ -156,7 +157,7 @@
                   <maximumSize width="-1" height="-1"/>
                   <minimumSize width="-1" height="-1"/>
                   <preferredSize width="120" height="30"/>
-                  <text value="Пароль"/>
+                  <text resource-bundle="subscription" key="password_text"/>
                 </properties>
               </component>
             </children>
@@ -184,9 +185,9 @@
                   <horizontalAlignment value="2"/>
                   <maximumSize width="-1" height="-1"/>
                   <minimumSize width="-1" height="-1"/>
-                  <name value="txtSupportPhone"/>
+                  <name resource-bundle="subscription" key="txt_support_phone"/>
                   <preferredSize width="350" height="30"/>
-                  <text value="00-00-00"/>
+                  <text value=""/>
                 </properties>
               </component>
               <component id="5b2ee" class="javax.swing.JLabel">
@@ -204,7 +205,7 @@
                   <maximumSize width="-1" height="-1"/>
                   <minimumSize width="-1" height="-1"/>
                   <preferredSize width="120" height="30"/>
-                  <text value="Телефон тех. поддержки"/>
+                  <text resource-bundle="subscription" key="support_phone_text"/>
                 </properties>
               </component>
             </children>
@@ -235,7 +236,7 @@
                   <rolloverSelectedIcon value="settings_check.png"/>
                   <selected value="false"/>
                   <selectedIcon value="settings_check.png"/>
-                  <text value="Отображать поверх всех окон"/>
+                  <text resource-bundle="subscription" key="always_on_top_text"/>
                 </properties>
               </component>
             </children>
@@ -247,7 +248,7 @@
               </grid>
             </constraints>
             <properties>
-              <actionCommand value="Запустить киоск"/>
+              <actionCommand resource-bundle="subscription" key="start_infokiosk"/>
               <alignmentY value="0.5"/>
               <background color="-16750088"/>
               <enabled value="true"/>
@@ -256,8 +257,8 @@
               <foreground color="-1"/>
               <horizontalTextPosition value="0"/>
               <margin top="0" left="0" bottom="0" right="0"/>
-              <name value="btnStartInfoKiosk"/>
-              <text value="Запустить информационный киоск"/>
+              <name resource-bundle="subscription" key="btn_start_infokiosk"/>
+              <text resource-bundle="subscription" key="start_infokiosk"/>
             </properties>
           </component>
         </children>

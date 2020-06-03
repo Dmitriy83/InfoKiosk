@@ -25,10 +25,12 @@ public enum FileTypes {
 
     PDF;
 
+    @SuppressWarnings("unused")
     public String value() {
         return name();
     }
 
+    @SuppressWarnings("unused")
     public static FileTypes fromValue(String v) {
         return valueOf(v);
     }

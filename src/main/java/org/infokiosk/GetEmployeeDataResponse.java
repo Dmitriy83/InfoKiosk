@@ -28,6 +28,7 @@ import org.infokiosk_types.EmployeeData;
  * 
  * 
  */
+@SuppressWarnings("ALL")
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "_return"

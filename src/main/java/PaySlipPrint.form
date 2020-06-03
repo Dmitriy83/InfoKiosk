@@ -41,6 +41,7 @@
                   <icon value="decrease.png"/>
                   <maximumSize width="-1" height="-1"/>
                   <minimumSize width="-1" height="-1"/>
+                  <name resource-bundle="subscription" key="month_decrease_button"/>
                   <preferredSize width="55" height="55"/>
                   <text value=""/>
                 </properties>
@@ -55,6 +56,7 @@
                   <icon value="increase.png"/>
                   <maximumSize width="-1" height="-1"/>
                   <minimumSize width="-1" height="-1"/>
+                  <name resource-bundle="subscription" key="month_increase_button"/>
                   <preferredSize width="55" height="55"/>
                   <text value=""/>
                 </properties>
@@ -71,7 +73,7 @@
                   <opaque value="false"/>
                   <preferredSize width="400" height="55"/>
                   <requestFocusEnabled value="true"/>
-                  <text value="Май 2020 г."/>
+                  <text resource-bundle="subscription" key="month_text_default"/>
                 </properties>
               </component>
             </children>
@@ -90,8 +92,8 @@
               <horizontalTextPosition value="11"/>
               <icon value="print.png"/>
               <iconTextGap value="10"/>
-              <label value="&lt;html&gt;&lt;center&gt;Распечатать&lt;br&gt;расчетный лист&lt;/center&gt;&lt;/html&gt;"/>
-              <text value="&lt;html&gt;&lt;center&gt;Распечатать&lt;br&gt;расчетный лист&lt;/center&gt;&lt;/html&gt;"/>
+              <label resource-bundle="subscription" key="print_pay_slip"/>
+              <text resource-bundle="subscription" key="print_pay_slip"/>
             </properties>
           </component>
           <component id="20f32" class="javax.swing.JButton" binding="btnCloseSession">
@@ -109,7 +111,8 @@
               <foreground color="-1"/>
               <horizontalTextPosition value="0"/>
               <margin top="0" left="0" bottom="0" right="0"/>
-              <text value="Завершить сеанс"/>
+              <name resource-bundle="subscription" key="close_session_button"/>
+              <text resource-bundle="subscription" key="close_session"/>
             </properties>
           </component>
           <component id="42415" class="javax.swing.JLabel" binding="lblEmployeeData">
@@ -120,7 +123,7 @@
               <focusable value="false"/>
               <font name="Arial" size="42"/>
               <foreground color="-12632257"/>
-              <text value="Иванов Иван Иванович, таб. номер 234"/>
+              <text resource-bundle="subscription" key="employee_data_text_default"/>
               <verticalAlignment value="0"/>
             </properties>
           </component>

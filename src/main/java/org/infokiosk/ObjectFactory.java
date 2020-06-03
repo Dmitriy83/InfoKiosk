@@ -18,6 +18,7 @@ import javax.xml.bind.annotation.XmlRegistry;
  * provided in this class.
  * 
  */
+@SuppressWarnings("ALL")
 @XmlRegistry
 public class ObjectFactory {
 

@@ -1,5 +1,4 @@
 import javax.swing.*;
-import java.awt.*;
 
 public class Invitation {
     private JPanel mainPanel;

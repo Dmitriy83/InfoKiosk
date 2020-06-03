@@ -32,6 +32,7 @@ import org.infokiosk_types.FileTypes;
  * 
  * 
  */
+@SuppressWarnings("ALL")
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "individualId",
