@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.text.MessageFormat;
 import java.util.prefs.Preferences;
 
 public class ErrorScreen {
@@ -9,9 +10,9 @@ public class ErrorScreen {
     private JLabel lblErrorDescription;
 
     public ErrorScreen(String errorDescription) {
-        lblErrorDescription.setText("<html>"+ errorDescription +"</html>");
+        lblErrorDescription.setText(MessageFormat.format(InfoKiosk.bundle.getString("html_string"), errorDescription));
         Preferences preferences = Preferences.userRoot().node(InfoKiosk.class.getName());
-        lblSupportText.setText("Обратитесь в тех. поддержку по телефону " + preferences.get("support_phone", "00-00") + ".");
+        lblSupportText.setText(InfoKiosk.bundle.getString("support_phone_message_template")  + " " + preferences.get(InfoKiosk.bundle.getString("support_phone_key"), "00-00") + ".");
         btnCloseSession.addActionListener(e -> InfoKiosk.initializeInvitation());
     }
 

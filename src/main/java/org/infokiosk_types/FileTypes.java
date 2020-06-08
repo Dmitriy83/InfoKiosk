@@ -19,7 +19,7 @@ import javax.xml.bind.annotation.XmlType;
  * </pre>
  * 
  */
-@XmlType(name = "FileTypes")
+@XmlType(name = "FileTypes") //NON-NLS
 @XmlEnum
 public enum FileTypes {
 

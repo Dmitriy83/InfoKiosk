@@ -31,7 +31,7 @@ public final class PDFPrinting {
             // Открываем начальную страницу
             InfoKiosk.initializeInvitation();
         } catch (Exception e) {
-            InfoKiosk.showErrorScreen("Произошла ошибка при печати расчетного листка: "+ e.getMessage());
+            InfoKiosk.showErrorScreen(InfoKiosk.bundle.getString("pay_slip_printing_error_message") + " " + e.getMessage());
             //e.printStackTrace();
         }
     }

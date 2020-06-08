@@ -3,7 +3,7 @@ import io.cucumber.junit.Cucumber;
 import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(plugin = {"pretty"}, strict = true)
+@CucumberOptions(strict = true)
 public class CucumberTestRun {
 }
 

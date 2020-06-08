@@ -29,5 +29,6 @@ dependencies {
     compile group: 'org.assertj', name: 'assertj-swing-junit', version: '3.9.2'
 
     compile 'org.apache.pdfbox:pdfbox:2.0.19'
+    compile 'org.jetbrains:annotations:16.0.2'
 }
 

@@ -52,7 +52,9 @@ Feature: Print pay slips
     And I click button "btnMonthIncrease"
     And I click button "btnMonthIncrease"
     And I click button "brnMonthDecrease"
+    And I click button "brnMonthDecrease"
     And I click button "btnMonthIncrease"
+    And I click button "brnMonthDecrease"
     And I click button "brnMonthDecrease"
     And I click button "btnCloseSession"
     # Из-за глюка в первый раз промахивается мимо кнопки. Во второй раз попадает.
@@ -71,7 +73,9 @@ Feature: Print pay slips
     And I click button "btnMonthIncrease"
     And I click button "btnMonthIncrease"
     And I click button "brnMonthDecrease"
+    And I click button "brnMonthDecrease"
     And I click button "btnMonthIncrease"
+    And I click button "brnMonthDecrease"
     And I click button "brnMonthDecrease"
     And I click button "btnCloseSession"
     # Из-за глюка в первый раз промахивается мимо кнопки. Во второй раз попадает.

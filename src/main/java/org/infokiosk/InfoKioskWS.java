@@ -15,16 +15,16 @@ import javax.xml.ws.Service;
  *
  */
 @SuppressWarnings("unused")
-@WebServiceClient(name = "InfoKioskWS",
-                  wsdlLocation = "file:/C:/Users/127/AppData/Local/Temp/tempdir361428764797344436.tmp/infokiosk_1.wsdl",
-                  targetNamespace = "http://www.infokiosk.org")
+@WebServiceClient(name = "InfoKioskWS", //NON-NLS
+                  wsdlLocation = "file:/C:/Users/127/AppData/Local/Temp/tempdir361428764797344436.tmp/infokiosk_1.wsdl", //NON-NLS
+                  targetNamespace = "http://www.infokiosk.org") //NON-NLS
 public class InfoKioskWS extends Service {
 
     public final static URL WSDL_LOCATION;
 
-    public final static QName SERVICE = new QName("http://www.infokiosk.org", "InfoKioskWS");
-    public final static QName InfoKioskWSSoap = new QName("http://www.infokiosk.org", "InfoKioskWSSoap");
-    public final static QName InfoKioskWSSoap12 = new QName("http://www.infokiosk.org", "InfoKioskWSSoap12");
+    public final static QName SERVICE = new QName("http://www.infokiosk.org", "InfoKioskWS"); //NON-NLS
+    public final static QName InfoKioskWSSoap = new QName("http://www.infokiosk.org", "InfoKioskWSSoap"); //NON-NLS
+    public final static QName InfoKioskWSSoap12 = new QName("http://www.infokiosk.org", "InfoKioskWSSoap12"); //NON-NLS
     static {
         URL url = null;
         try {
@@ -32,7 +32,7 @@ public class InfoKioskWS extends Service {
         } catch (MalformedURLException e) {
             java.util.logging.Logger.getLogger(InfoKioskWS.class.getName())
                 .log(java.util.logging.Level.INFO,
-                     "Can not initialize the default wsdl from {0}", "file:/C:/Users/127/AppData/Local/Temp/tempdir361428764797344436.tmp/infokiosk_1.wsdl");
+                     "Can not initialize the default wsdl from {0}", "file:/C:/Users/127/AppData/Local/Temp/tempdir361428764797344436.tmp/infokiosk_1.wsdl"); //NON-NLS
         }
         WSDL_LOCATION = url;
     }
@@ -71,7 +71,7 @@ public class InfoKioskWS extends Service {
      * @return
      *     returns InfoKioskWSPortType
      */
-    @WebEndpoint(name = "InfoKioskWSSoap")
+    @WebEndpoint(name = "InfoKioskWSSoap") //NON-NLS
     public InfoKioskWSPortType getInfoKioskWSSoap() {
         return super.getPort(InfoKioskWSSoap, InfoKioskWSPortType.class);
     }
@@ -85,7 +85,7 @@ public class InfoKioskWS extends Service {
      * @return
      *     returns InfoKioskWSPortType
      */
-    @WebEndpoint(name = "InfoKioskWSSoap")
+    @WebEndpoint(name = "InfoKioskWSSoap") //NON-NLS
     public InfoKioskWSPortType getInfoKioskWSSoap(WebServiceFeature... features) {
         return super.getPort(InfoKioskWSSoap, InfoKioskWSPortType.class, features);
     }
@@ -96,7 +96,7 @@ public class InfoKioskWS extends Service {
      * @return
      *     returns InfoKioskWSPortType
      */
-    @WebEndpoint(name = "InfoKioskWSSoap12")
+    @WebEndpoint(name = "InfoKioskWSSoap12") //NON-NLS
     public InfoKioskWSPortType getInfoKioskWSSoap12() {
         return super.getPort(InfoKioskWSSoap12, InfoKioskWSPortType.class);
     }
@@ -108,7 +108,7 @@ public class InfoKioskWS extends Service {
      * @return
      *     returns InfoKioskWSPortType
      */
-    @WebEndpoint(name = "InfoKioskWSSoap12")
+    @WebEndpoint(name = "InfoKioskWSSoap12") //NON-NLS
     public InfoKioskWSPortType getInfoKioskWSSoap12(WebServiceFeature... features) {
         return super.getPort(InfoKioskWSSoap12, InfoKioskWSPortType.class, features);
     }

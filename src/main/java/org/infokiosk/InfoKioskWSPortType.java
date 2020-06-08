@@ -14,41 +14,42 @@ import javax.xml.ws.ResponseWrapper;
  * Generated source version: 3.3.6
  *
  */
-@WebService(targetNamespace = "http://www.infokiosk.org", name = "InfoKioskWSPortType")
+@WebService(targetNamespace = "http://www.infokiosk.org", name = "InfoKioskWSPortType") //NON-NLS NON-NLS
 @XmlSeeAlso({org.infokiosk_types.ObjectFactory.class, ObjectFactory.class})
 public interface InfoKioskWSPortType {
 
     @SuppressWarnings("UnnecessaryInterfaceModifier")
-    @WebMethod(operationName = "GetCompanyName", action = "http://www.infokiosk.org#InfoKioskWS:GetCompanyName")
-    @RequestWrapper(localName = "GetCompanyName", targetNamespace = "http://www.infokiosk.org", className = "org.infokiosk.GetCompanyName")
-    @ResponseWrapper(localName = "GetCompanyNameResponse", targetNamespace = "http://www.infokiosk.org", className = "org.infokiosk.GetCompanyNameResponse")
-    @WebResult(name = "return", targetNamespace = "http://www.infokiosk.org")
+    @WebMethod(operationName = "GetCompanyName", action = "http://www.infokiosk.org#InfoKioskWS:GetCompanyName") //NON-NLS
+    //NON-NLS NON-NLS
+    @RequestWrapper(localName = "GetCompanyName", targetNamespace = "http://www.infokiosk.org", className = "org.infokiosk.GetCompanyName") //NON-NLS
+    @ResponseWrapper(localName = "GetCompanyNameResponse", targetNamespace = "http://www.infokiosk.org", className = "org.infokiosk.GetCompanyNameResponse") //NON-NLS
+    @WebResult(name = "return", targetNamespace = "http://www.infokiosk.org") //NON-NLS
     public java.lang.String getCompanyName()
 ;
 
     @SuppressWarnings("UnnecessaryInterfaceModifier")
-    @WebMethod(operationName = "GetEmployeeData", action = "http://www.infokiosk.org#InfoKioskWS:GetEmployeeData")
-    @RequestWrapper(localName = "GetEmployeeData", targetNamespace = "http://www.infokiosk.org", className = "org.infokiosk.GetEmployeeData")
-    @ResponseWrapper(localName = "GetEmployeeDataResponse", targetNamespace = "http://www.infokiosk.org", className = "org.infokiosk.GetEmployeeDataResponse")
-    @WebResult(name = "return", targetNamespace = "http://www.infokiosk.org")
+    @WebMethod(operationName = "GetEmployeeData", action = "http://www.infokiosk.org#InfoKioskWS:GetEmployeeData") //NON-NLS
+    @RequestWrapper(localName = "GetEmployeeData", targetNamespace = "http://www.infokiosk.org", className = "org.infokiosk.GetEmployeeData") //NON-NLS
+    @ResponseWrapper(localName = "GetEmployeeDataResponse", targetNamespace = "http://www.infokiosk.org", className = "org.infokiosk.GetEmployeeDataResponse") //NON-NLS
+    @WebResult(name = "return", targetNamespace = "http://www.infokiosk.org") //NON-NLS
     public org.infokiosk_types.EmployeeData getEmployeeData(
 
-        @WebParam(name = "KeyCardNumber", targetNamespace = "http://www.infokiosk.org")
+        @WebParam(name = "KeyCardNumber", targetNamespace = "http://www.infokiosk.org") //NON-NLS
         java.lang.String keyCardNumber
     );
 
     @SuppressWarnings("UnnecessaryInterfaceModifier")
-    @WebMethod(operationName = "GetPaySlip", action = "http://www.infokiosk.org#InfoKioskWS:GetPaySlip")
-    @RequestWrapper(localName = "GetPaySlip", targetNamespace = "http://www.infokiosk.org", className = "org.infokiosk.GetPaySlip")
-    @ResponseWrapper(localName = "GetPaySlipResponse", targetNamespace = "http://www.infokiosk.org", className = "org.infokiosk.GetPaySlipResponse")
-    @WebResult(name = "return", targetNamespace = "http://www.infokiosk.org")
+    @WebMethod(operationName = "GetPaySlip", action = "http://www.infokiosk.org#InfoKioskWS:GetPaySlip") //NON-NLS
+    @RequestWrapper(localName = "GetPaySlip", targetNamespace = "http://www.infokiosk.org", className = "org.infokiosk.GetPaySlip") //NON-NLS
+    @ResponseWrapper(localName = "GetPaySlipResponse", targetNamespace = "http://www.infokiosk.org", className = "org.infokiosk.GetPaySlipResponse") //NON-NLS
+    @WebResult(name = "return", targetNamespace = "http://www.infokiosk.org") //NON-NLS
     public byte[] getPaySlip(
 
-        @WebParam(name = "IndividualId", targetNamespace = "http://www.infokiosk.org")
+        @WebParam(name = "IndividualId", targetNamespace = "http://www.infokiosk.org") //NON-NLS
         java.lang.String individualId,
-        @WebParam(name = "Month", targetNamespace = "http://www.infokiosk.org")
+        @WebParam(name = "Month", targetNamespace = "http://www.infokiosk.org") //NON-NLS
         javax.xml.datatype.XMLGregorianCalendar month,
-        @WebParam(name = "FileType", targetNamespace = "http://www.infokiosk.org")
+        @WebParam(name = "FileType", targetNamespace = "http://www.infokiosk.org") //NON-NLS
         org.infokiosk_types.FileTypes fileType
     );
 }

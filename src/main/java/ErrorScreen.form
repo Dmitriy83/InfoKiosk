@@ -64,7 +64,7 @@
                   <focusable value="false"/>
                   <font name="Arial" size="42"/>
                   <foreground color="-12632257"/>
-                  <text resource-bundle="subscription" key="support_phone_message"/>
+                  <text resource-bundle="subscription" key="support_phone_message_example"/>
                 </properties>
               </component>
               <vspacer id="df131">

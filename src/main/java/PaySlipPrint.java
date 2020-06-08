@@ -33,7 +33,7 @@ public class PaySlipPrint {
     }
 
     private void updateMonthLabel() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("LLLL yyyy 'г.'");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("LLLL yyyy 'г.'"); //NON-NLS
         lblMonth.setText(formatter.format(month));
     }
 

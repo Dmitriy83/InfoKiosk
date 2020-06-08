@@ -17,17 +17,17 @@ public class WSController {
             @Override
             protected java.net.PasswordAuthentication getPasswordAuthentication() {
                 Preferences preferences = Preferences.userRoot().node(InfoKiosk.class.getName());
-                return new java.net.PasswordAuthentication(preferences.get("login", "AdminWS"), InfoKiosk.getPassword().toCharArray());
+                return new java.net.PasswordAuthentication(preferences.get(InfoKiosk.bundle.getString("login_key"), InfoKiosk.bundle.getString("login_example")), InfoKiosk.getPassword().toCharArray());
             }
         });
         try {
             Preferences preferences = Preferences.userRoot().node(InfoKiosk.class.getName());
-            URL wsdlURL = new URL(preferences.get("wsdl_address", "http://localhost/zup/ws/infokiosk.1cws?wsdl"));
+            URL wsdlURL = new URL(preferences.get(InfoKiosk.bundle.getString("wsdl_address_key"), InfoKiosk.bundle.getString("infokiosk_wsdl_default")));
             InfoKioskWS ws = new InfoKioskWS(wsdlURL);
             wsPort = ws.getInfoKioskWSSoap();
             isConnected = true;
         } catch (Exception e) {
-            InfoKiosk.showErrorScreen("Произошла ошибка при установке соединения с веб-сервисом: " + e.getMessage());
+            InfoKiosk.showErrorScreen(InfoKiosk.bundle.getString("connection_web_service_error_message") + " " + e.getMessage());
             //e.printStackTrace();
             isConnected = false;
         }
@@ -37,7 +37,7 @@ public class WSController {
         if (wsPort != null) {
             return wsPort.getCompanyName();
         } else {
-            return "Организация не определена.";
+            return InfoKiosk.bundle.getString("company_name_not_recognized");
         }
     }
 

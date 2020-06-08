@@ -30,49 +30,49 @@ public class StepDefinitions {
     @After
     public void cleanup() {
         if (robot != null) {
-            System.out.println("Cleanup");
+            System.out.println("Cleanup"); //NON-NLS
             robot.cleanUp();
         }
         if (frame != null) {
-            System.out.println("frameCleanUp");
+            System.out.println("frameCleanUp"); //NON-NLS
             frame.cleanUp();
         }
 
         InfoKiosk.Dispose();
     }
 
-    @When("I input {string} in field {string}")
+    @When("I input {string} in field {string}") //NON-NLS
     public void iInputInField(String text, String fieldName) {
         frame.textBox(fieldName).setText(text);
     }
 
-    @Given("I click button {string}")
+    @Given("I click button {string}") //NON-NLS
     public void iClickButton(String btnName) {
         robot.waitForIdle();
         frame.button(btnName).click();
     }
 
-    @Then("I see text {string}")
+    @Then("I see text {string}") //NON-NLS
     public void iSeeText(String text) {
         frame.label(JLabelMatcher.withText(Pattern.compile(".*" + text + ".*", Pattern.CASE_INSENSITIVE)).andShowing());
     }
 
-    @Then("Frame {string} displayed")
+    @Then("Frame {string} displayed") //NON-NLS
     public void frameDisplayed(String frameName) {
         frame = WindowFinder.findFrame(frameName).using(robot);
     }
 
-    @And("I wait {int} seconds")
+    @And("I wait {int} seconds") //NON-NLS
     public void iWaitSeconds(int seconds) {
         pause(seconds * 1000);
     }
 
-    @And("I press button with key {int} on keyboard")
+    @And("I press button with key {int} on keyboard") //NON-NLS
     public void iPressButtonWithKeyOnKeyboard(int key) {
         frame.pressAndReleaseKey(KeyPressInfo.keyCode(key));
     }
 
-    @Then("I don't see text {string}")
+    @Then("I don't see text {string}") //NON-NLS
     public void iDonTSeeText(String text) {
         try {
             frame.label(JLabelMatcher.withText(Pattern.compile(".*" + text + ".*", Pattern.CASE_INSENSITIVE)).andShowing());

@@ -1,4 +1,5 @@
 import org.infokiosk_types.EmployeeData;
+import org.jetbrains.annotations.NonNls;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -7,17 +8,20 @@ import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ResourceBundle;
 import java.util.prefs.Preferences;
 
 public class InfoKiosk {
     private static InfoKioskFrame frame;
     private static JFrame frameSettings;
     private static KeyAdapter frameKeyListener;
-    private static String companyName = "Организация не определена.";
+    private static String companyName;
     private static String individualId;
     private static Timer sessionTimer;
     private static String password;
     private static AWTListener awtListener;
+    @NonNls
+    public static final ResourceBundle bundle = ResourceBundle.getBundle("subscription");
 
     public static void main(String[] args) {
         setThemeNimbus();
@@ -31,7 +35,7 @@ public class InfoKiosk {
         frameSettings = null;
         frame = null;
         Toolkit.getDefaultToolkit().removeAWTEventListener(awtListener);
-        companyName = "Организация не определена.";
+        companyName = bundle.getString("company_name_not_recognized");
         individualId = "";
         password = "";
     }
@@ -40,7 +44,7 @@ public class InfoKiosk {
         // Установим тему Nimbus, чтобы по умолчанию углы кнопок были закруглены
         try {
             for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if (bundle.getString("nimbus").equals(info.getName())) {
                     UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -55,17 +59,17 @@ public class InfoKiosk {
     }
 
     private static void initializeSettings(){
-        frameSettings = new JFrame("Settings");
+        frameSettings = new JFrame(bundle.getString("settings_frame_title"));
         frameSettings.setUndecorated(true);
         frameSettings.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        BufferedImage image = getImage("settings_background.png");
+        BufferedImage image = getImage(bundle.getString("settings_background_file_name"));
 
         Preferences preferences = Preferences.userRoot().node(InfoKiosk.class.getName());
         SettingsForm form = new SettingsForm(
-                preferences.get("wsdl_address", "http://<ip>/zup/ws/infokiosk.1cws?wsdl"),
-                preferences.get("login", "AdminWS"),
-                preferences.get("support_phone", "00-00"),
-                preferences.getBoolean("always_on_top", false));
+                preferences.get(bundle.getString("wsdl_address_key"), bundle.getString("infokiosk_wsdl_example")),
+                preferences.get(bundle.getString("login_key"), bundle.getString("login_example")),
+                preferences.get(bundle.getString("support_phone_key"), bundle.getString("support_phone_example")),
+                preferences.getBoolean(bundle.getString("always_on_top_key"), false));
         BackgroundPanel panel = form.backgroundPanel;
 
         panel.setImage(image);
@@ -83,7 +87,7 @@ public class InfoKiosk {
         try {
             image = ImageIO.read(is);
         } catch (IOException e) {
-            showErrorScreen("Произошла ошибка при загрузке фона формы: " + e.getMessage());
+            showErrorScreen(bundle.getString("background_downloading_error_message") + " " + e.getMessage());
             e.printStackTrace();
         }
         return image;
@@ -99,7 +103,7 @@ public class InfoKiosk {
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         Preferences preferences = Preferences.userRoot().node(InfoKiosk.class.getName());
-        if (preferences.getBoolean("always_on_top", false)) {
+        if (preferences.getBoolean(bundle.getString("always_on_top_key"), false)) {
             frame.setAlwaysOnTop(true);
         }
 
@@ -141,10 +145,10 @@ public class InfoKiosk {
 
     public static void saveSettings(boolean alwaysOnTop, String wsdlAddress, String login, String supportPhone) {
         Preferences preferences = Preferences.userRoot().node(InfoKiosk.class.getName());
-        preferences.putBoolean("always_on_top", alwaysOnTop);
-        preferences.put("wsdl_address", wsdlAddress);
-        preferences.put("login", login);
-        preferences.put("support_phone", supportPhone);
+        preferences.putBoolean(bundle.getString("always_on_top_key"), alwaysOnTop);
+        preferences.put(bundle.getString("wsdl_address_key"), wsdlAddress);
+        preferences.put(bundle.getString("login_key"), login);
+        preferences.put(bundle.getString("support_phone_key"), supportPhone);
     }
 
     public static String getPassword() {
@@ -180,7 +184,7 @@ public class InfoKiosk {
                         initializePaySlipPrint(employeeData.getDescription());
                     } else {
                         setIndividualId("");
-                        showErrorScreen("Сотрудник по номеру пропуска не найден.");
+                        showErrorScreen(bundle.getString("employee_not_found_error"));
                     }
                     sessionTimer.restart();
 
@@ -196,6 +200,7 @@ public class InfoKiosk {
 
     public static void initializeInvitation() {
         setFieldsInDefaultValue();
+        if (companyName == null) { companyName = bundle.getString("company_name_not_recognized"); }
         initializePanel(new Invitation(companyName).backgroundPanel);
         frame.addKeyListener(frameKeyListener);
         frame.setFocusable(true);
@@ -216,7 +221,7 @@ public class InfoKiosk {
     }
 
     private static void initializePanel(BackgroundPanel panel) {
-        panel.setImage(getImage("form_background.jpg"));
+        panel.setImage(getImage(bundle.getString("main_background_file_name")));
         frame.setContentPane(panel);
         frame.revalidate();
         frame.repaint();
