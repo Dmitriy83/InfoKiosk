@@ -178,6 +178,7 @@ public class InfoKiosk {
                     if (!wsController.isConnected()) {
                         return;
                     }
+                    System.out.println("Key number: " + frame.getKeyCardNumber());
                     EmployeeData employeeData = wsController.getEmployeeData(frame.getKeyCardNumber());
                     if (employeeData != null && employeeData.isIsFound()) {
                         setIndividualId(employeeData.getIndividualId());
@@ -190,7 +191,7 @@ public class InfoKiosk {
 
                     // Теперь очистим номер пропуска, чтобы можно было ввести следующий
                     frame.setKeyCardNumber("");
-                } else {
+                } else if (!(e.getKeyCode() == KeyEvent.VK_SHIFT || e.getKeyCode() == KeyEvent.VK_CAPS_LOCK)){
                     // Был считан какой-то символ, отличный от Enter. Добавим его в "Кэш номера пропуска"
                     frame.setKeyCardNumber(frame.getKeyCardNumber() + e.getKeyChar());
                 }
