@@ -20,6 +20,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="IndividualId" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="Description" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="isFound" type="{http://www.w3.org/2001/XMLSchema}boolean"/&gt;
+ *         &lt;element name="MonthOfCalculatedSalary" type="{http://www.w3.org/2001/XMLSchema}anyType"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -28,20 +29,23 @@ import javax.xml.bind.annotation.XmlType;
  * 
  * 
  */
-@SuppressWarnings("ALL")
+@SuppressWarnings("unused")
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "EmployeeData", propOrder = {
-    "individualId",
-    "description",
-    "isFound"
+@XmlType(name = "EmployeeData", propOrder = { //NON-NLS
+    "individualId", //NON-NLS
+    "description", //NON-NLS
+    "isFound", //NON-NLS
+    "monthOfCalculatedSalary" //NON-NLS
 })
 public class EmployeeData {
 
-    @XmlElement(name = "IndividualId", required = true)
+    @XmlElement(name = "IndividualId", required = true) //NON-NLS
     protected String individualId;
-    @XmlElement(name = "Description", required = true)
+    @XmlElement(name = "Description", required = true) //NON-NLS
     protected String description;
     protected boolean isFound;
+    @XmlElement(name = "MonthOfCalculatedSalary", required = true, nillable = true) //NON-NLS
+    protected Object monthOfCalculatedSalary;
 
     /**
      * Gets the value of the individualId property.
@@ -105,6 +109,30 @@ public class EmployeeData {
      */
     public void setIsFound(boolean value) {
         this.isFound = value;
+    }
+
+    /**
+     * Gets the value of the monthOfCalculatedSalary property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Object }
+     *     
+     */
+    public Object getMonthOfCalculatedSalary() {
+        return monthOfCalculatedSalary;
+    }
+
+    /**
+     * Sets the value of the monthOfCalculatedSalary property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Object }
+     *     
+     */
+    public void setMonthOfCalculatedSalary(Object value) {
+        this.monthOfCalculatedSalary = value;
     }
 
 }

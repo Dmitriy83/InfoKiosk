@@ -178,11 +178,11 @@ public class InfoKiosk {
                     if (!wsController.isConnected()) {
                         return;
                     }
-                    System.out.println("Key number: " + frame.getKeyCardNumber());
+                    System.out.println("Key number: " + frame.getKeyCardNumber()); //NON-NLS
                     EmployeeData employeeData = wsController.getEmployeeData(frame.getKeyCardNumber());
                     if (employeeData != null && employeeData.isIsFound()) {
                         setIndividualId(employeeData.getIndividualId());
-                        initializePaySlipPrint(employeeData.getDescription());
+                        initializePaySlipPrint(employeeData.getDescription(), employeeData.getMonthOfCalculatedSalary());
                     } else {
                         setIndividualId("");
                         showErrorScreen(bundle.getString("employee_not_found_error"));
@@ -212,8 +212,8 @@ public class InfoKiosk {
         initializeNonInvitationPanel(new ErrorScreen(errorDescription).backgroundPanel);
     }
 
-    private static void initializePaySlipPrint(String employeeDescription) {
-        initializeNonInvitationPanel(new PaySlipPrint(employeeDescription).backgroundPanel);
+    private static void initializePaySlipPrint(String employeeDescription, Object monthOfCalculatedSalary) {
+        initializeNonInvitationPanel(new PaySlipPrint(employeeDescription, monthOfCalculatedSalary).backgroundPanel);
     }
 
     private static void initializeNonInvitationPanel(BackgroundPanel panel) {

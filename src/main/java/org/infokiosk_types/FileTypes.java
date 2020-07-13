@@ -19,18 +19,17 @@ import javax.xml.bind.annotation.XmlType;
  * </pre>
  * 
  */
-@XmlType(name = "FileTypes") //NON-NLS
+@SuppressWarnings("ALL")
+@XmlType(name = "FileTypes")
 @XmlEnum
 public enum FileTypes {
 
     PDF;
 
-    @SuppressWarnings("unused")
     public String value() {
         return name();
     }
 
-    @SuppressWarnings("unused")
     public static FileTypes fromValue(String v) {
         return valueOf(v);
     }

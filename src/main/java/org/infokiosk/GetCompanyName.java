@@ -25,10 +25,10 @@ import javax.xml.bind.annotation.XmlType;
  * 
  * 
  */
-@SuppressWarnings("unused")
+@SuppressWarnings("ALL")
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "")
-@XmlRootElement(name = "GetCompanyName") //NON-NLS
+@XmlRootElement(name = "GetCompanyName")
 public class GetCompanyName {
 
 
